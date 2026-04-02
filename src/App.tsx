@@ -142,25 +142,39 @@ const Button = ({ children, className = "", primary = false, href, ...props }: {
   };
 
   const finalHref = href ? getFinalHref(href) : undefined;
-  const Component = href ? motion.a : motion.button;
-  const extraProps = href ? { href: finalHref, target: "_blank", rel: "noopener noreferrer" } : {};
+  
+  const commonClasses = `w-full py-3 px-6 rounded-xl font-black text-base md:text-lg shadow-lg transition-all duration-300 flex items-center justify-center gap-2 uppercase tracking-tight bg-emerald-500 hover:bg-emerald-600 text-white cursor-pointer ${className}`;
+
+  if (href) {
+    return (
+      <motion.a
+        href={finalHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        whileHover={{ scale: 1.02, boxShadow: "0 10px 20px -5px rgba(16, 185, 129, 0.3)" }}
+        whileTap={{ scale: 0.98 }}
+        className={commonClasses}
+        {...(props as any)}
+      >
+        {children}
+      </motion.a>
+    );
+  }
 
   return (
-    <Component
+    <motion.button
       {...props}
-      {...extraProps as any}
       whileHover={{ scale: 1.02, boxShadow: "0 10px 20px -5px rgba(16, 185, 129, 0.3)" }}
       whileTap={{ scale: 0.98 }}
-      className={`w-full py-3 px-6 rounded-xl font-black text-base md:text-lg shadow-lg transition-all duration-300 flex items-center justify-center gap-2 uppercase tracking-tight bg-emerald-500 hover:bg-emerald-600 text-white cursor-pointer ${className}`}
+      className={commonClasses}
     >
       {children}
-    </Component>
+    </motion.button>
   );
 };
 
 const FlippingButton = ({ text1, text2, className = "", href }: { text1: string, text2: string, className?: string, href?: string }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const [isClicked, setIsClicked] = useState(false);
 
   return (
     <Button 
@@ -168,9 +182,8 @@ const FlippingButton = ({ text1, text2, className = "", href }: { text1: string,
       href={href}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      onClick={() => setIsClicked(!isClicked)}
     >
-      {(isHovered || isClicked) ? text2 : text1}
+      {isHovered ? text2 : text1}
     </Button>
   );
 };
