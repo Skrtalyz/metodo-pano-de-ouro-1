@@ -321,7 +321,6 @@ export default function App() {
           >
             {[
               { emoji: "✅", title: "200 RISCOS E MOLDES EXCLUSIVOS", desc: "A maior biblioteca do Brasil. Temas de Natal, Páscoa, Cozinha Moderna, Flores e Frutas. É só imprimir, riscar e brilhar." },
-              { emoji: "🎥", title: "CURSO PRÁTICO \"MÃOS NA MASSA\"", desc: "Vídeo-aulas direto ao ponto. Aprenda o acabamento de luxo que permite você cobrar 3x mais caro que a concorrência." },
               { emoji: "📦", title: "O GUIA DO PANO PERFEITO", desc: "Qual tecido usar? Qual linha não desbota? Eu te dou o mapa das melhores matérias-primas." },
               { emoji: "📲", title: "PLATAFORMA VIP", desc: "Acesso por celular, tablet ou computador. Assista onde e quando quiser, para sempre." },
               { emoji: "♾️", title: "ACESSO VITALÍCIO + ATUALIZAÇÕES", desc: "Você paga uma vez e recebe novos modelos todos os meses sem pagar 1 centavo a mais." },
