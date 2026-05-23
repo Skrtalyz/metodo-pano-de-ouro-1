@@ -224,7 +224,7 @@ const staggerContainer = {
   viewport: { once: true }
 };
 
-const CHECKOUT_URL = "https://pay.kiwify.com.br/sgsT44N";
+const CHECKOUT_URL = "https://pay.kirvano.com/f112ebdd-d0ee-485b-a61a-5bf96c6200bd";
 
 export default function App() {
   return (
